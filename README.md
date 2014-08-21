@@ -19,22 +19,27 @@ $ ~/hsnixinit/setup.sh myhaskellproj
 
 This should create default.nix and shell.nix.  Now to pull in the dependencies for the project.
 
-If you're on nixos 14.04, the following won't work!  But on unstable it should work ok:
-$ nix-shell  
-
 On my nixos 14.04 system I have nixpkgs checked out into ~/nixpkgs.  I can do this:
 
 $ nix-shell -I nixpkgs=~/nixpkgs
 
-be warned that this involves a great deal of compilation!  When all that finishes, I can build the project like so: 
+be warned that this involves a great deal of compilation!  Seriously, a lot.  I'm told that on nixos unstable this should work:
 
-$ cabal sandbox init  
-$ cabal install
+$ nix-shell  
+
+If the nix-shell command ran successfully, you should now have a command prompt like this:
+
+[nix-shell:~/code/myhaskellproject]$
+
+Now build the project:
+
+[nix-shell:~/code/myhaskellproject]$ cabal sandbox init  
+[nix-shell:~/code/myhaskellproject]$ cabal install
 
 and maybe make a link for convenience:
 
-$ ln .cabal-sandbox/bin/myhaskellproj myhaskellproj
+[nix-shell:~/code/myhaskellproject]$ ln .cabal-sandbox/bin/myhaskellproj myhaskellproj
 
 and execute the program:
 
-$ ./myhaskellproj
+[nix-shell:~/code/myhaskellproject]$ ./myhaskellproj
