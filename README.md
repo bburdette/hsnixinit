@@ -19,11 +19,13 @@ $ ~/hsnixinit/setup.sh myhaskellproj
 
 This should create default.nix and shell.nix.  Now to pull in the dependencies for the project.
 
-On my nixos 14.04 system I have nixpkgs checked out into ~/nixpkgs.  I can do this:
+The shell.nix included here does not work on nixos 14.04 by default.  But on my nixos 14.04 system I have a newer copy of nixpkgs checked out into ~/nixpkgs.  I can do this:
 
 $ nix-shell -I nixpkgs=~/nixpkgs
 
-be warned that this involves a great deal of compilation!  Seriously, a lot.  I'm told that on nixos unstable this should work:
+That's a capital 'I' as in Internets.  Be warned that this approach (a checkout of nixpkgs) involves a great deal of compilation!  Seriously, a lot.  I'm using a checkout of nixpkgs because I wanted to add some dependencies to it.  See here:  https://github.com/bburdette/nixpkgs.  
+
+I'm told that on the nixos 'unstable' channel this should work by downloading pre-built binaries:
 
 $ nix-shell  
 
