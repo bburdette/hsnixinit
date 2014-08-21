@@ -6,7 +6,7 @@ script to create shell.nix and default.nix files on nixos for a haskell project,
 To use, first clone into a directory someplace:
 
 $ cd ~  
-$ git clone https://github.com/bburdette/hsnixinit#  
+$ git clone https://github.com/bburdette/hsnixinit
 
 The script depends on cabal2nix, so install that.
 
