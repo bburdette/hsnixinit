@@ -1,7 +1,7 @@
-hsnixinit
+setup.sh
 =========
 
-script to create shell.nix and default.nix files on nixos for a haskell project, using cabal2nix.  Then, you can use nix-shell to pull in the dependencies the project needs to build.  
+setup.sh is a script to create shell.nix and default.nix files on nixos for a haskell project, using cabal2nix.  Then, you can use nix-shell to pull in the dependencies the project needs to build.  
 
 To use, first clone into a directory someplace:
 
@@ -45,3 +45,23 @@ and maybe make a link for convenience:
 and execute the program:
 
 [nix-shell:~/code/myhaskellproject]$ ./myhaskellproj
+
+addlib.sh
+=========
+
+Add a haskell library to your local nixpkgs checkout, like this:
+
+$ ./addlib.sh nonEmpty non-empty ~/nixpkgs
+
+The first argument is the 'import name' of the library, ie in your haskell file you'd say 
+import nonEmpty
+
+The second is the 'cabal name', which you'd use in you .cabal file.  
+
+The third argument is the directory of your nixpkgs git clone.  
+
+What it does:
+ - makes a directory for the lib in the appropriate location in nixpkgs.
+ - calls cabal2nix to create a default.nix in that directory
+ - adds a line in <nixpkgs>/pkgs/top-level/haskell-packages.nix for the lib.
+
