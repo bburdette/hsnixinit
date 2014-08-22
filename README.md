@@ -1,3 +1,5 @@
+There are two scripts in this project:  setup.sh and addib.sh.  
+
 setup.sh
 =========
 
