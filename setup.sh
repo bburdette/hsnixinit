@@ -1,3 +1,12 @@
+#
+#  assuming there is a myproject.cabal file in the myproject directory,
+#  and hsnixinit is checked out into ~, then call this script like so:
+#
+#  [nixuser@nixsys myproject]$ ~/hsnixinit/setup.sh myproject
+#
+#  this should create a defaulx.nix and shell.nix.
+#  nix-shell should then pull in the dependencies if they are in your nixpkgs.
+#
 INSTDIR=$(dirname $0)
 SHELLNIX="${INSTDIR}/shell.nix"
 SHELLDEST="${PWD}/shell.nix"
