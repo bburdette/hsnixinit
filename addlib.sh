@@ -1,6 +1,10 @@
 # $1 = library name, ie import <libname>
 # $2 = cabal package name, ie its name in .cabal file
-# $3 = nixpkgs location
+# $3 = nixpkgs location, no trailing /.
+#
+# example:
+#   $ ~/hsnixinit/addlib.sh webRoutesHappstack web-routes-happstack ~/nixpkgs14.04
+#
 SHELLNIX="${INSTDIR}/shell.nix"
 LIBDIR="$3/pkgs/development/libraries/haskell/"
 PACKNIX="$3/pkgs/top-level/haskell-packages.nix"
