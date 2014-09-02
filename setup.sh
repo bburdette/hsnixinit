@@ -4,7 +4,7 @@
 #
 #  [nixuser@nixsys myproject]$ ~/hsnixinit/setup.sh myproject
 #
-#  this should create a defaulx.nix and shell.nix.
+#  this should create a default.nix and shell.nix.
 #  nix-shell should then pull in the dependencies if they are in your nixpkgs.
 #
 INSTDIR=$(dirname $0)
