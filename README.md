@@ -65,3 +65,5 @@ What it does:
  - calls cabal2nix to create a default.nix in that directory
  - adds a line in <nixpkgs>/pkgs/top-level/haskell-packages.nix for the lib.
 
+It looks like haskell-packages.nix is for the most part kept in alphabetical order.  This script doesn't maintain that order, it just puts the new lines at the beginning of the section.  You probably should put the new lines in the right place in the file before checking in your changes.  
+
