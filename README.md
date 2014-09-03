@@ -3,9 +3,9 @@ There are two scripts in this project:  setup.sh and addib.sh.
 setup.sh
 =========
 
-setup.sh is a script to create shell.nix and default.nix files on nixos for a haskell project, using cabal2nix.  Then, you can use nix-shell to pull in the dependencies the project needs to build.  
+setup.sh is a script to create shell.nix, default.nix, and optionally an 'ns' script on nixos for a haskell project.  Then, you can use nix-shell or the 'ns' script to pull in the dependencies the project needs to build.  
 
-To use, first clone into a directory someplace:
+To use, first git clone into a directory someplace:
 
 $ cd ~  
 $ git clone https://github.com/bburdette/hsnixinit
@@ -19,17 +19,19 @@ assuming myhaskellproj contains a cabal file named myhaskellproj.cabal:
 $ cd ~/code/myhaskellproj/  
 $ ~/hsnixinit/setup.sh myhaskellproj
 
-This should create default.nix and shell.nix.  Now to pull in the dependencies for the project.
+or 
 
-As of this writing the shell.nix included here does not work on nixos 14.04.  However it does work if you check out the newest 14.04 nixpkgs with git, and it works on unstable or newer as well.  For instance on my system I have a fork of nixpkgs in ~/nixpkgs, so I can do this: 
+$ ~/hsnixinit/setup.sh myhaskellproj ~/mynixpkgs
 
-$ nix-shell -I nixpkgs=~/nixpkgs
+if you have checked out nixpkgs someplace.   
 
-That's a capital 'I' as in Internets.  Be warned that this approach (a checkout of nixpkgs) involves a great deal of compilation!  Seriously, a lot.  Checking out the unstable branch instead will make nixos download binaries instead of compiling everything.  Or if you switch your system to the unstable channel, plain nix-shell should work:
+This should create default.nix, shell.nix, and the ns script.  To pull in the dependencies for the project:
 
-$ nix-shell  
+$ ./ns
 
-If the nix-shell command ran successfully, you should now have a command prompt like this:
+One caveat.  As of this writing the shell.nix included here does not work on nixos 14.04.  However it does work if you check out the newest 14.04 nixpkgs with git and use that.  It works on unstable or newer as well.   
+
+If the ns script ran successfully, you should now have a command prompt like this:
 
 [nix-shell:~/code/myhaskellproject]$
 

@@ -29,4 +29,7 @@ if [ "$#" -gt "1" ]
   then 
     echo "nix-shell -I nixpkgs=$2" > ns
     chmod +x ns
+  else
+    echo "nix-shell" > ns
+    chmod +x ns
 fi
