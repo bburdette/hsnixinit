@@ -1,3 +1,5 @@
+Automated setup of haskell projects, based on/inpired by [this blog post](http://wiki.ocharles.org.uk/Nix#how-do-i-use-cabal2nix-for-local-projects).
+
 There are two scripts in this project:  setup.sh and addib.sh.  
 
 setup.sh
