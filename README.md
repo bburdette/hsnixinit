@@ -5,7 +5,7 @@ There are two scripts in this project:  setup.sh and addib.sh.
 setup.sh
 =========
 
-setup.sh is a script to create shell.nix, default.nix, and optionally an 'ns' script on nixos for a haskell project.  Then, you can use nix-shell or the 'ns' script to pull in the dependencies the project needs to build.  
+setup.sh is a script to create shell.nix, default.nix, and an 'ns' script on nixos for a haskell project.  Then, you can use nix-shell or 'ns' to pull in the dependencies the project needs to build.  
 
 To use, first git clone into a directory someplace:
 
@@ -60,7 +60,7 @@ $ ./addlib.sh nonEmpty non-empty ~/nixpkgs
 The first argument is the 'import name' of the library, ie in your haskell file you'd say 
 import nonEmpty
 
-The second is the 'cabal name', which you'd use in you .cabal file.  
+The second is the 'cabal name', which you'd use in your .cabal file.  
 
 The third argument is the directory of your nixpkgs git clone.  
 
